@@ -4,9 +4,11 @@ public abstract class CharactorBase : MonoBehaviour
 {
     [SerializeField] protected CharactorParamater _charactorParamater;
 
+    public CharactorParamater GetCharactorParamater => _charactorParamater;
+
     public bool IsDead => _charactorParamater.GetCurrentHp < 0;
 
-    public virtual void SetParameter(int maxHp,int hp, float charactorAttack, float moveSpeed, float searchRange)
+    public virtual void SetParameter(int maxHp, int hp, float charactorAttack, float moveSpeed, float searchRange)
     {
         _charactorParamater.SetMaxHp(maxHp);
         _charactorParamater.SetHp(hp);
@@ -22,7 +24,7 @@ public abstract class CharactorBase : MonoBehaviour
 
     public virtual void DamageBehaviour(int damage)
     {
-        _charactorParamater.SetMaxHp(_charactorParamater.GetCurrentHp - damage);
+        _charactorParamater.SetHp(_charactorParamater.GetCurrentHp - damage);
     }
 
     public virtual void OnDead()
