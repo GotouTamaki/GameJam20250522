@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb011653174c464c96b30605528e22a, type: 3}
+  m_Name: TestEnemyData
+  m_EditorClassIdentifier: 
+  enemyData:
+  - _maxHp: 1
+    _currentHp: 1
+    _charactorAttack: 1
+    _moveSpeed: 1
+    _searchRange: 1
+    _spriteRenderer: {fileID: 0}
+    _deadEffect: {fileID: 0}
