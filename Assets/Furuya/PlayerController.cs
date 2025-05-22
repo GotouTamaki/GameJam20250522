@@ -27,8 +27,6 @@ public class PlayerController : CharactorBase
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
 
-    [SerializeField] float m_bulletChangeDuration = 5f;
-
     Rigidbody2D m_rb = default;
     SpriteRenderer m_sprite = default;
     /// <summary>m_colors に使う添字</summary>
@@ -38,11 +36,9 @@ public class PlayerController : CharactorBase
     float m_scaleX;
     /// <summary>最初に出現した座標</summary>
     Vector3 m_initialPosition;
-
-    float _bulletChangeTime = 0;
-    ///<summary>時間計測のための変数
-    private float time;
-
+    
+    /// <summary>貫通弾を色消費にする</summary>
+    //float allColorsValue[]
 
 
 
@@ -59,7 +55,6 @@ public class PlayerController : CharactorBase
         // 初期位置を覚えておく
         m_initialPosition = this.transform.position;
         _currrentJumpCount = _jumpCount;
-        time = 1.0f;　//最初の1回をOK
     }
 
     void Update()
@@ -77,12 +72,8 @@ public class PlayerController : CharactorBase
         }
 
         
-        //連射出来ないようにして銃を撃つ
-        time += Time.deltaTime;　//時間を増やす
-        if (time >= 1.0f) //1秒以上経てばOK
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
                 GameObject bullet = null;
 
                 switch (m_bulletType)
@@ -99,8 +90,11 @@ public class PlayerController : CharactorBase
                 //Debug.Log("ここに弾を発射する処理を書く。");
                 //bullet.transform.position = transform.position;
                 bullet.transform.position = m_muzzle.position;
+
+            //for (int i = 0; i<allColorsValue.Length; i++))
+            {
+                //allColorValue[i] -= 1;
             }
-        time = 0.0f; //時間を初期化
         }
 
 
@@ -108,15 +102,9 @@ public class PlayerController : CharactorBase
         {
             //Debug.Log("ここに弾丸を切り替える処理を書く。");
             m_bulletType = BulletType.Penetrat;
-            _bulletChangeTime = Time.time;
         }
 
-        if(m_bulletType != BulletType.Normal && Time.time - _bulletChangeTime >= m_bulletChangeDuration)
-        {
-            m_bulletType = BulletType.Normal;
-            Debug.Log(Time.time - _bulletChangeTime);
-        }
-
+        
        
 
 
