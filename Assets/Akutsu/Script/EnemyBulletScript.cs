@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class EnemyBulletScript : MonoBehaviour
 {
 	/// <summary>’e‚ª”ò‚Ô‘¬‚³</summary>
 	[SerializeField] float _speed = 3f;
 	/// <summary>’e‚Ì¶‘¶ŠúŠÔi•bj</summary>
 	[SerializeField] float _lifeTime = 3f;
+
+	public int _attack;
 
 	// Start is called before the first frame update
 	void Start()
@@ -25,6 +27,10 @@ public class BulletScript : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			Destroy(this.gameObject);
+			if (collision.TryGetComponent<CharactorBase>(out var CharactorBase))
+			{
+				CharactorBase.DamageBehaviour(_attack);
+			}
 		}
 	}
 }

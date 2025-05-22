@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 432025907}
   - component: {fileID: 432025908}
   - component: {fileID: 432025909}
+  - component: {fileID: 432025910}
   m_Layer: 0
   m_Name: Enemy_deb
   m_TagString: Untagged
@@ -546,9 +547,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c777795e7766fd48987198bbe739e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _charactorParamater:
+    _maxHp: 1
+    _currentHp: 1
+    _charactorAttack: 1
+    _moveSpeed: 1
+    _searchRange: 1
+    _spriteRenderer: {fileID: 0}
+    _deadEffect: {fileID: 0}
   _bullet: {fileID: 1909242606668514369, guid: 0678d1fb4e15d7e4eb5046586fb6fa41, type: 3}
   _bulletInterbal_sec: 0.8
+--- !u!114 &432025910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432025904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfd41bb79e8c704db528bbf9a4eaffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _charactorParamater:
+    _maxHp: 1
+    _currentHp: 1
+    _charactorAttack: 1
+    _moveSpeed: 1
+    _searchRange: 1
+    _spriteRenderer: {fileID: 0}
+    _deadEffect: {fileID: 0}
 --- !u!1 &499520405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1268,7 @@ GameObject:
   - component: {fileID: 1910150439}
   m_Layer: 0
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: SearchRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
