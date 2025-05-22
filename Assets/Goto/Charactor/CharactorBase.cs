@@ -8,7 +8,7 @@ public class CharactorBase : MonoBehaviour
 
     public bool IsDead => _charactorParamater.GetCurrentHp < 0;
 
-    public virtual void SetParameter(int maxHp, int hp, float charactorAttack, float moveSpeed, float searchRange)
+    public virtual void SetParameter(int maxHp, int hp, int charactorAttack, float moveSpeed, float searchRange)
     {
         _charactorParamater.SetMaxHp(maxHp);
         _charactorParamater.SetHp(hp);
