@@ -29,6 +29,8 @@ public class CharactorBase : MonoBehaviour
 
     public virtual void OnDead()
     {
+        _charactorParamater.GetSpriteRenderer.enabled = false;
+
         if (_charactorParamater.GetDeadEffect != null)
         {
             Instantiate(_charactorParamater.GetDeadEffect, gameObject.transform.position, gameObject.transform.rotation);
