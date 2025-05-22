@@ -2,38 +2,34 @@ using UnityEngine;
 
 public abstract class CharactorBase : MonoBehaviour
 {
-    [SerializeField] private int _hp = 1;
-    [SerializeField] private float _charactorAttack = 1f;
-    [SerializeField] private float _moveSpeed = 1f;
-    [SerializeField] private float _searchRange = 1f;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private ParticleSystem _deadEffect;
+    [SerializeField] protected CharactorParamater _charactorParamater;
 
-    public bool IsDead => _hp < 0;
+    public bool IsDead => _charactorParamater.GetCurrentHp < 0;
 
-    public virtual void SetParameter(int hp, float charactorAttack, float moveSpeed, float searchRange)
+    public virtual void SetParameter(int maxHp,int hp, float charactorAttack, float moveSpeed, float searchRange)
     {
-        _hp = hp;
-        _charactorAttack = charactorAttack;
-        _moveSpeed = moveSpeed;
-        _searchRange = searchRange;
+        _charactorParamater.SetMaxHp(maxHp);
+        _charactorParamater.SetHp(hp);
+        _charactorParamater.SetCharactorAttack(charactorAttack);
+        _charactorParamater.SetMoveSpeed(moveSpeed);
+        _charactorParamater.SetSearchRange(searchRange);
     }
 
     public virtual void OnInitialize()
     {
-        _spriteRenderer.enabled = false;
+        _charactorParamater.GetSpriteRenderer.enabled = false;
     }
 
     public virtual void DamageBehaviour(int damage)
     {
-        _hp -= damage;
+        _charactorParamater.SetMaxHp(_charactorParamater.GetCurrentHp - damage);
     }
 
     public virtual void OnDead()
     {
-        if (_deadEffect != null)
+        if (_charactorParamater.GetDeadEffect != null)
         {
-            Instantiate(_deadEffect, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(_charactorParamater.GetDeadEffect, gameObject.transform.position, gameObject.transform.rotation);
         }
     }
 }
