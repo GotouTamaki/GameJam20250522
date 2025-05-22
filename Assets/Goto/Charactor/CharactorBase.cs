@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class CharactorBase : MonoBehaviour
+public class CharactorBase : MonoBehaviour
 {
     [SerializeField] protected CharactorParamater _charactorParamater;
 
