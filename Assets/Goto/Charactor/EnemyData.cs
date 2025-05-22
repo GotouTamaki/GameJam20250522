@@ -1,7 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/EnemyData")]
-public class EnemyData : ScriptableObject
+[System.Serializable]
+public class EnemyData
 {
-    public CharactorParamater[] enemyData;
+    [SerializeField] private CharactorBase _enemy;
+    [SerializeField] private float _popTime;
+
+    public@CharactorBase GetEnemy => _enemy;
+    public float GetPopTime => _popTime;
 }
