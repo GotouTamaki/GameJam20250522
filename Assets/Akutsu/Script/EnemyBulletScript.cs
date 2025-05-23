@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class EnemyBulletScript : MonoBehaviour
+public class EnemyBulletScript : CharactorBase
 {
     /// <summary>íeÇ™îÚÇ‘ë¨Ç≥</summary>
     [SerializeField] float _speed = 3f;
     /// <summary>íeÇÃê∂ë∂ä˙ä‘ÅiïbÅj</summary>
     [SerializeField] float _lifeTime = 3f;
 
-    public int _bulletAttack;
+    /// <summary>íeÇÃHP</summary>
+    [SerializeField] int _hp = 3;
+
+    public int _bulletAttack = 1;
 
     private Vector3 _moveDirection;
 
@@ -41,7 +44,12 @@ public class EnemyBulletScript : MonoBehaviour
         }
         else if (collision.CompareTag("FriendsBullet"))
         {
-            Destroy(this.gameObject);
+            _hp -= collision.gameObject.GetComponent<BulletCon>().m_bulletDamage;
+
+            if(_hp < 0)
+            {
+				Destroy(this.gameObject);
+			}
         }
     }
 }
