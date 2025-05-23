@@ -11,6 +11,8 @@ public class BulletCon : MonoBehaviour
     [SerializeField] float m_speed = 3f;
     [SerializeField] public int m_bulletDamage = 1;
 
+    [SerializeField] public int m_hp = 10;
+
 
     void Start()
     {
@@ -41,7 +43,12 @@ public class BulletCon : MonoBehaviour
         }
         else if (collision.CompareTag("EnemyBullet"))
         {
-            Destroy(this.gameObject);
-        }
+			m_hp -= collision.gameObject.GetComponent<EnemyBulletScript>()._bulletAttack;
+
+			if (m_hp < 0)
+			{
+				Destroy(this.gameObject);
+			}
+		}
     }
 }

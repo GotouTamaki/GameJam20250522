@@ -8,6 +8,7 @@ public class EnemyBulletScript : MonoBehaviour
     [SerializeField] float _lifeTime = 3f;
 
     public int _bulletAttack;
+    [SerializeField] int _hp = 50;
 
     private Vector3 _moveDirection;
 
@@ -39,5 +40,15 @@ public class EnemyBulletScript : MonoBehaviour
 
             Destroy(this.gameObject);
         }
-    }
+		else if (collision.CompareTag("FriendsBullet"))
+		{
+            _hp -= collision.gameObject.GetComponent<BulletCon>().m_bulletDamage;
+
+            if(_hp < 0)
+            {
+				Destroy(this.gameObject);
+			}
+			
+		}
+	}
 }
