@@ -1,65 +1,111 @@
-using System.Collections;
-using System.Collections.Generic;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] GameSystem gameSystem;
     [SerializeField] EnemyDataBase _enemyDataBase;
-    int totalEnemyCount = 0; @@//ƒEƒF[ƒu–ˆ‚Ì“G‚Ì‘”
-    int activeEnemyCount = 0;@@//oŒ»‚µ‚Ä‚¢‚é“G‚Ì‘”
-    int busteredEnemyCount = 0;@//ƒEƒF[ƒu“à‚Å“|‚µ‚½“G‚Ì”
+    [SerializeField] Transform[] _popPoints;
+
+    [SerializeField] private int totalEnemyCount = 10; ã€€ã€€//ã‚¦ã‚§ãƒ¼ãƒ–æ¯ã®æ•µã®ç·æ•°
+    [SerializeField] private int _fieldEnemyLimit = 5;
+    private int activeEnemyCount = 0;ã€€ã€€//å‡ºç¾ã—ã¦ã„ã‚‹æ•µã®ç·æ•°
+
+    //ãƒªã‚¶ãƒ«ãƒˆã¨ã‹ã«ä½¿ã†ã‹ã‚‰ãƒ‘ãƒ–ãƒªãƒƒã‚¯
+    public int busteredEnemyCount = 0;ã€€//ã‚¦ã‚§ãƒ¼ãƒ–å†…ã§å€’ã—ãŸæ•µã®æ•°
+    public int waveCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        WaveInit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (busteredEnemyCount == totalEnemyCount) //‘S–Å”»’è
+        if (busteredEnemyCount == totalEnemyCount) //å…¨æ»…åˆ¤å®š
         {
-            //gameSystem.NextWave(); //Wave‚ÌˆÚ“®
+            //gameSystem.NextWave(); //Waveã®ç§»å‹•
         }
     }
 
-    /// <summary>’Š‘Iƒƒ\ƒbƒh</summary>
+    public void WaveInit()
+    {
+        activeEnemyCount = 0;
+        busteredEnemyCount = 0;
+        waveCount++;
+
+        StartCoroutine(StartWave());
+    }
+
+    /// <summary>æŠ½é¸ãƒ¡ã‚½ãƒƒãƒ‰</summary>
     public int ChooseEnemy(EnemyData[] enemyData)
     {
         float[] weight = new float[enemyData.Length];
 
-        for(int i = 0; i < enemyData.Length; i++)
+        for (int i = 0; i < enemyData.Length; i++)
         {
             weight[i] = enemyData[i].GetPopWight;
         }
 
         float total = 0f;
-        //”z—ñ‚Ì—v‘f‚ğtotal‚É‘ã“ü
+        //é…åˆ—ã®è¦ç´ ã‚’totalã«ä»£å…¥
         for (int i = 0; i < weight.Length; i++)
         {
             total += weight[i];
         }
 
-        //Random.value‚Í0.1‚©‚ç1‚Ü‚Å‚Ì’l‚ğ•Ô‚·
+        //Random.valueã¯0.1ã‹ã‚‰1ã¾ã§ã®å€¤ã‚’è¿”ã™
         float random = UnityEngine.Random.value * total;
 
-        //weight‚ªrandom‚æ‚è‘å‚«‚¢‚©‚ğ’T‚·
+        //weightãŒrandomã‚ˆã‚Šå¤§ãã„ã‹ã‚’æ¢ã™
         for (int i = 0; i < weight.Length; i++)
         {
             if (random < weight[i])
             {
-                //ƒ‰ƒ“ƒ_ƒ€‚Ì’l‚æ‚èd‚İ‚ª‘å‚«‚©‚Á‚½‚ç‚»‚Ì’l‚ğ•Ô‚·
+                //ãƒ©ãƒ³ãƒ€ãƒ ã®å€¤ã‚ˆã‚Šé‡ã¿ãŒå¤§ãã‹ã£ãŸã‚‰ãã®å€¤ã‚’è¿”ã™
                 return i;
             }
             else
             {
-                //Ÿ‚Ìweight‚ªˆ—‚³‚ê‚é‚æ‚¤‚É‚·‚é
+                //æ¬¡ã®weightãŒå‡¦ç†ã•ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹
                 random -= weight[i];
             }
         }
-        //‚È‚©‚Á‚½‚çÅŒã‚Ì’l‚ğ•Ô‚·
+        //ãªã‹ã£ãŸã‚‰æœ€å¾Œã®å€¤ã‚’è¿”ã™
         return weight.Length;
+    }
+
+    /// <summary>
+    /// ã‚¦ã‚§ãƒ¼ãƒ–åˆã‚ã«ã‚¨ãƒãƒŸãƒ¼
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator StartWave()
+    {
+        Debug.Log("Start");
+        while (true)
+        {
+            if (activeEnemyCount - busteredEnemyCount < _fieldEnemyLimit)
+            {
+                activeEnemyCount++;
+                int enemyIndex = ChooseEnemy(_enemyDataBase.GetEnemyData);
+                PopEnemy(enemyIndex);
+            }
+
+            // ãƒ©ãƒ³ãƒ€ãƒ ãªæ™‚é–“ã‚’å¾…ã¤ï¼ˆä¾‹ï¼š1ã€œ3ç§’ï¼‰
+            yield return new WaitForSeconds(Random.Range(1f, 3f));
+        }
+    }
+
+    /// <summary>
+    /// ã‚¨ãƒãƒŸãƒ¼ã‚’å‡ºç¾ã•ã›ã‚‹
+    /// </summary>
+    /// <param name="enemyDataLength"></param>
+    /// <returns></returns>
+    private void PopEnemy(int enemyDataLength)
+    {
+        Debug.Log("pop");
+        Instantiate(_enemyDataBase.GetEnemyData[enemyDataLength].GetEnemy);
     }
 }

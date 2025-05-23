@@ -111,6 +111,7 @@ public class BGMSoundData
         Title,
         InGame,
         Result,
+        Boss,
     }
 
     public BGM bgm;
@@ -128,6 +129,15 @@ public class SESoundData
         Select,
         Splash,
         Collision,
+        Shoot,
+        Heel,
+        ChangeBullet,
+        Hit,
+        BossEntry,
+        RedBlueTurret,
+        YellowTurret,
+        YellowAtack,
+        Destroy,
     }
 
     public SE se;
