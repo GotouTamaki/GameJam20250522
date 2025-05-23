@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 enum BulletType
@@ -14,6 +12,8 @@ enum BulletType
 /// </summary>
 public class PlayerController : CharactorBase
 {
+    private const string SHOT_ANIMATION = "Shot";
+
     /// <summary>左右移動する力</summary>
     [SerializeField] float m_movePower = 5f;
     /// <summary>ジャンプする力</summary>
@@ -26,8 +26,7 @@ public class PlayerController : CharactorBase
     [SerializeField] Transform m_muzzle = default;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
-
-    [SerializeField] float m_bulletChangeDuration = 5f;
+    [SerializeField] Animator m_animator;
 
     Rigidbody2D m_rb = default;
     SpriteRenderer m_sprite = default;
@@ -39,13 +38,8 @@ public class PlayerController : CharactorBase
     /// <summary>最初に出現した座標</summary>
     Vector3 m_initialPosition;
 
-    float _bulletChangeTime = 0;
-    ///<summary>時間計測のための変数
-    private float time;
-
-
-
-
+    /// <summary>貫通弾を色消費にする</summary>
+    //float allColorsValue[]
 
     BulletType m_bulletType = BulletType.Normal;
 
@@ -59,31 +53,28 @@ public class PlayerController : CharactorBase
         // 初期位置を覚えておく
         m_initialPosition = this.transform.position;
         _currrentJumpCount = _jumpCount;
-        time = 1.0f;　//最初の1回をOK
     }
 
     void Update()
     {
-        // 入力を受け取る
-        m_h = Input.GetAxisRaw("Horizontal");
-
-        // 各種入力を受け取る
-        if (Input.GetButtonDown("Jump"))
+        if (!IsDead)
         {
-            if (_currrentJumpCount > 0)
-                //Debug.Log("ここにジャンプする処理を書く。");
-                m_rb.AddForce(new Vector2(0, m_jumpPower), ForceMode2D.Impulse);
-            _currrentJumpCount--;
-        }
+            // 入力を受け取る
+            m_h = Input.GetAxisRaw("Horizontal");
 
-        
-        //連射出来ないようにして銃を撃つ
-        time += Time.deltaTime;　//時間を増やす
-        if (time >= 1.0f) //1秒以上経てばOK
-        {
+            // 各種入力を受け取る
+            //if (Input.GetButtonDown("Jump"))
+            //{a
+            //    if (_currrentJumpCount > 0)
+            //        //Debug.Log("ここにジャンプする処理を書く。");
+            //        m_rb.AddForce(new Vector2(0, m_jumpPower), ForceMode2D.Impulse);
+            //    _currrentJumpCount--;
+            //}
+
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject bullet = null;
+                m_animator.SetTrigger(SHOT_ANIMATION);
 
                 switch (m_bulletType)
                 {
@@ -99,34 +90,30 @@ public class PlayerController : CharactorBase
                 //Debug.Log("ここに弾を発射する処理を書く。");
                 //bullet.transform.position = transform.position;
                 bullet.transform.position = m_muzzle.position;
+
+                //for (int i = 0; i<allColorsValue.Length; i++))
+                //{
+                //allColorValue[i] -= 1;
+                //}
             }
-        time = 0.0f; //時間を初期化
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                //Debug.Log("ここに弾丸を切り替える処理を書く。");
+                m_bulletType = BulletType.Penetrat;
+            }
+
+            // 設定に応じて左右を反転させる
+            if (m_flipX)
+            {
+                FlipX(m_h);
+            }
         }
-
-
-        if (Input.GetButtonDown("Fire2"))
+        else
         {
-            //Debug.Log("ここに弾丸を切り替える処理を書く。");
-            m_bulletType = BulletType.Penetrat;
-            _bulletChangeTime = Time.time;
-        }
-
-        if(m_bulletType != BulletType.Normal && Time.time - _bulletChangeTime >= m_bulletChangeDuration)
-        {
-            m_bulletType = BulletType.Normal;
-            Debug.Log(Time.time - _bulletChangeTime);
-        }
-
-       
-
-
-        // 設定に応じて左右を反転させる
-        if (m_flipX)
-        {
-            FlipX(m_h);
+            OnDead();
         }
     }
-
 
     private void FixedUpdate()
     {
