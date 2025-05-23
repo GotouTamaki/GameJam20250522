@@ -19,19 +19,19 @@ public enum ColorType
 public class GameSystem : MonoBehaviour
 {
     // クリア条件・失敗条件・Wave移行条件
+    public ColorTank[] allColoersTank;
     GameMode gameMode = GameMode.None;
     
     bool _isGameOver;
 
-    int waveEnemyCount = 0;
-    int activeEnemyCount = 0;
-    int busteredEnemycount = 0;
+    int mustEnemyCount = 0;
+    int currentEnemyCount = 0;
+    int makedEnemycount = 0;
 
     int currentWaveNumber = 1;
     float useSkillValue = 0; // スキル発動に必要な色の使用量
 
     bool[] activeSkillUI = { false, false, false };
-    public float[] allColoersValue = new float[2];
 
     float maxColorValue;    // 色値の最大保有量
 
@@ -49,7 +49,7 @@ public class GameSystem : MonoBehaviour
 
     void Start()
     {
-        ChangeWave(currentWaveNumber);
+        ChangeWave(currentWaveNumber); //EnemyManagerのメソッドを呼ぶ。
     }
 
     void ChangeWave(int i)
@@ -81,7 +81,7 @@ public class GameSystem : MonoBehaviour
     }
 
     // 色の加算 と スキルUIのアクティブ判定
-    public void AddColoerValue(float getColorValue, ColorType colorType) //色の判断が必要
+    public void AddColoerValue(int getColorValue, ColorType colorType) //色の判断が必要
     {
         int colorTypeIndex = -1;
 
@@ -99,9 +99,9 @@ public class GameSystem : MonoBehaviour
         }
         if (colorTypeIndex != -1)
         {
-            allColoersValue[colorTypeIndex] += getColorValue; 　　//色の加算
+            allColoersTank[colorTypeIndex]._currentTankValue += getColorValue; 　　//色の加算
 
-            if (allColoersValue[colorTypeIndex] >= useSkillValue) //色に応じたスキルUIのアクティブ判定
+            if (allColoersTank[colorTypeIndex]._currentTankValue >= useSkillValue) //色に応じたスキルUIのアクティブ判定
             {
                 activeSkillUI[colorTypeIndex] = true;
             }

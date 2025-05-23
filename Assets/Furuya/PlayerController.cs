@@ -99,8 +99,15 @@ public class PlayerController : CharactorBase
 
             if (Input.GetButtonDown("Fire2"))
             {
-                //Debug.Log("‚±‚±‚É’eŠÛ‚ğØ‚è‘Ö‚¦‚éˆ—‚ğ‘‚­B");
-                m_bulletType = BulletType.Penetrat;
+                if (m_bulletType == BulletType.Normal)
+                {
+                    //Debug.Log("‚±‚±‚É’eŠÛ‚ğØ‚è‘Ö‚¦‚éˆ—‚ğ‘‚­B");
+                    m_bulletType = BulletType.Penetrat;
+                }
+                else if (m_bulletType == BulletType.Penetrat)
+                {
+                    m_bulletType = BulletType.Normal;
+                }
             }
 
             // İ’è‚É‰‚¶‚Ä¶‰E‚ğ”½“]‚³‚¹‚é
