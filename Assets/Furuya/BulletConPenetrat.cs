@@ -8,7 +8,7 @@ public class BulletConPene : MonoBehaviour
     [SerializeField] float m_lifeTime = 5f;
     /// <summary>’e‚ª”ò‚Ô‘¬‚³</summary>
     [SerializeField] float m_speed = 3f;
-    [SerializeField] int m_bulletDamage = 1;
+    [SerializeField] public int m_bulletDamage = 1;
 
 
     void Start()
