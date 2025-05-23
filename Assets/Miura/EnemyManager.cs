@@ -1,14 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] GameSystem gameSystem;
     [SerializeField] EnemyDataBase _enemyDataBase;
-    int totalEnemyCount = 0; 　　//ウェーブ毎の敵の総数
-    int activeEnemyCount = 0;　　//出現している敵の総数
-    int busteredEnemyCount = 0;　//ウェーブ内で倒した敵の数
+    [SerializeField] Transform[] _popPoints;
+
+    [SerializeField] private int totalEnemyCount = 10; 　　//ウェーブ毎の敵の総数
+    [SerializeField] private int _fieldEnemyLimit = 5;
+    private int activeEnemyCount = 0;　　//出現している敵の総数
+
+    //リザルトとかに使うからパブリック
+    public int busteredEnemyCount = 0;　//ウェーブ内で倒した敵の数
+    public int waveCount = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,12 @@ public class EnemyManager : MonoBehaviour
         {
             //gameSystem.NextWave(); //Waveの移動
         }
+
+        if (activeEnemyCount - busteredEnemyCount < _fieldEnemyLimit)
+        {
+            activeEnemyCount++;
+            StartCoroutine(PopEnemy(ChooseEnemy(_enemyDataBase.GetEnemyData)));
+        }
     }
 
     /// <summary>抽選メソッド</summary>
@@ -30,7 +41,7 @@ public class EnemyManager : MonoBehaviour
     {
         float[] weight = new float[enemyData.Length];
 
-        for(int i = 0; i < enemyData.Length; i++)
+        for (int i = 0; i < enemyData.Length; i++)
         {
             weight[i] = enemyData[i].GetPopWight;
         }
@@ -61,5 +72,12 @@ public class EnemyManager : MonoBehaviour
         }
         //なかったら最後の値を返す
         return weight.Length;
+    }
+
+    IEnumerator PopEnemy(int enemyDataLength)
+    {
+        yield return new WaitForSeconds(Random.Range(1, 5));
+        Debug.Log("pop");
+        Instantiate(_enemyDataBase.GetEnemyData[enemyDataLength].GetEnemy);
     }
 }

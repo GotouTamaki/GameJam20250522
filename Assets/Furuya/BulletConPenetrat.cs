@@ -1,9 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 弾丸を制御するコンポーネント
-/// </summary>
-public class BulletCon : MonoBehaviour
+public class BulletConPene : MonoBehaviour
 {
     /// <summary>弾の生存期間（秒）</summary>
     [SerializeField] float m_lifeTime = 5f;
@@ -37,11 +36,6 @@ public class BulletCon : MonoBehaviour
         if (collision.CompareTag("Enemy") && collision.TryGetComponent(out CharactorBase charactor))
         {
             charactor.DamageBehaviour(m_bulletDamage);
-            Destroy(this.gameObject);
-        }
-        else if (collision.CompareTag("EnemyBullet"))
-        {
-            Destroy(this.gameObject);
         }
     }
 
