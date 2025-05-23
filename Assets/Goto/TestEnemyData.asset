@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb011653174c464c96b30605528e22a, type: 3}
   m_Name: TestEnemyData
   m_EditorClassIdentifier: 
-  enemyData:
-  - _maxHp: 1
-    _currentHp: 1
-    _charactorAttack: 1
-    _moveSpeed: 1
-    _searchRange: 1
-    _spriteRenderer: {fileID: 0}
-    _deadEffect: {fileID: 0}
+  _enemyData:
+  - _enemy: {fileID: 0}
+    _popTime: 0
+  - _enemy: {fileID: 0}
+    _popTime: 0

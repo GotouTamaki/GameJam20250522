@@ -30,7 +30,7 @@ public class CrystalController : CharactorBase
         {
             //collision.gameObject.GetComponent<>().bulletDamage; 敵の弾からダメージを取得
             //DamageBehaviour(float bulletDamage);
-            //if (_hp <= 0)
+            if (IsDead)
             {
                 gameSystem.SetIsGameover(true); //GameSystemに処理が移行
             }
