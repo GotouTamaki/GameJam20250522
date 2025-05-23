@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class CloudMove : MonoBehaviour
 {
     public float speed = 1f; // 移動速度
-    public float resetPositionX = -10f; // 雲が消える位置（左端）
-    public float startPositionX = 10f;  // 雲が出てくる位置（右端）
+    public float resetPositionX = -10f; // 雲が消える位置
+    public float startPositionX = 10f;  // 雲が出てくる位置
 
     void Update()
     {
