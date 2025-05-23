@@ -1,10 +1,11 @@
 using UnityEngine;
 
+[System.Serializable]
 public class ColorTank
 {
     [SerializeField] ColorType _colorType = ColorType.Blue;
-    [SerializeField] int _maxTankValue = 50;
-    [SerializeField] int _currentTankValue = 0;
+    [SerializeField] int _maxTankValue = 50;  //100‚ ‚½‚è‚É•ÏX—\’è
+    [SerializeField] public int _currentTankValue = 0; //Œ»Ý‚ÌColorValue
 
     public ColorType ColorType => ColorType;
     public int maxTabkValure => _maxTankValue;
