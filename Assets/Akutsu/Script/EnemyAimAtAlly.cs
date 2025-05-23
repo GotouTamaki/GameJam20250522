@@ -1,19 +1,23 @@
 using UnityEngine;
-
 public class EnemyAimAtAlly : CharactorBase
 {
 	Rigidbody2D _rb;
+	[SerializeField] GameSystem gameSystem;
 
 	[SerializeField] protected GameObject _bullet;        //弾
 	[SerializeField] protected Transform _muzzleTransform;
-	 protected bool _isFoundPlayer = false;                //プレイヤー陣営を発見しているか？
+	protected bool _isFoundPlayer = false;                //プレイヤー陣営を発見しているか？
 
 	[SerializeField] float _bulletInterbal_sec = 3f;  //弾の生成のインターバル時間(秒)
+	[SerializeField] float _baseSpeed = 1;            //弾のスピード
+	[SerializeField] ColorType colorType;
+
 	//float _time = 0f;                               //インターバルフレーム計測変数
 	//float _second = 0f;                             //インターバル秒数計測変数
-	float _baseSpeed = 1;
 	float _duration;
+    public int giveColorValue = 0;                   //ColorTankに与える色の値
     protected Vector3 _targetDirection;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,14 +60,15 @@ public class EnemyAimAtAlly : CharactorBase
 		else
 		{
 			OnDead();
-		}
+			gameSystem.AddColoerValue(giveColorValue, colorType);//初期値
+        }
 	}
 
 
 	//攻撃範囲内の判定
 	protected virtual void OnTriggerStay2D(Collider2D collision)
 	{
-		if (collision.tag == "Player")
+		if (collision.tag == "Player") //味方だったらダメージ　→　Player側のスクリプトは逆になる。
 		{
 			_isFoundPlayer = true;
             _targetDirection = (collision.transform.position - _muzzleTransform.position).normalized;
@@ -78,4 +83,12 @@ public class EnemyAimAtAlly : CharactorBase
 			_isFoundPlayer = false;
 		}
 	}
+
+	void OnDestroy() //いらない
+	{
+        //Colortunkに色を追加
+        //int getColorValue, ColorType colorType
+        //gameSystem.AddColoerValue()
+
+    }
 }

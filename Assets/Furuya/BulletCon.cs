@@ -50,14 +50,4 @@ public class BulletCon : MonoBehaviour
 			}
         }
     }
-
-    ///private void OnTriggerEnter2D(Collider2D collision)
-    ///{
-    // tag‚ÅŽ¯•Ê‚·‚é
-
-    ///if (collision.CompareTag("Player") && collision.TryGetComponent(out CharactorBase charactor))
-    ///{
-    ///charactor.DamageBehaviour(m_bulletDamage);
-    ///}
-    ///}
 }
