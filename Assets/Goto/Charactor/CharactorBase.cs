@@ -51,5 +51,7 @@ public class CharactorBase : MonoBehaviour
         {
             Instantiate(_charactorParamater.GetDeadEffect, gameObject.transform.position, gameObject.transform.rotation);
         }
+
+        FindAnyObjectByType<EnemyManager>().busteredEnemyCount++;
     }
 }
