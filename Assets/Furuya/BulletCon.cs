@@ -10,8 +10,11 @@ public class BulletCon : MonoBehaviour
     /// <summary>’e‚ª”ò‚Ô‘¬‚³</summary>
     [SerializeField] float m_speed = 3f;
     [SerializeField] public int m_bulletDamage = 1;
+<<<<<<< HEAD
 
     [SerializeField] int m_hp = 3;
+=======
+>>>>>>> 53b749c72bda2e5f6f06ca3061b6550aa582d620
 
 
     void Start()
