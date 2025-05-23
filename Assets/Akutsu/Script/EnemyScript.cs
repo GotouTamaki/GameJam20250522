@@ -19,6 +19,9 @@ public class EnemyScript : CharactorBase
 		_rb = GetComponent<Rigidbody2D>();
 		Application.targetFrameRate = 60;
 
+		//õ“G”ÍˆÍ‚Ì‘å‚«‚³‚ğ•ÏX
+		GameObject _Circle = GameObject.Find("AttackRange");
+		_Circle.GetComponent<CircleCollider2D>().radius = _charactorParamater.GetSearchRange;
 	}
 	// Update is called once per frame
 	void Update()
@@ -39,8 +42,11 @@ public class EnemyScript : CharactorBase
 					bullet.GetComponent<EnemyBulletScript>()._attack = _charactorParamater.GetCharactorAttack;
 				}
 			}
-			else baseSpeed = 1;
-
+			else
+			{
+				baseSpeed = 1;
+			} 
+				
 			//¶•ûŒü‚ÉˆÚ“®
 			this._rb.velocity = Vector2.left * baseSpeed * _charactorParamater.GetMoveSpeed;
 		}
