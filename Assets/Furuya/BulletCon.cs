@@ -11,7 +11,8 @@ public class BulletCon : MonoBehaviour
     [SerializeField] float m_speed = 3f;
     [SerializeField] public int m_bulletDamage = 1;
 
-    [SerializeField] int m_hp = 3;
+    [SerializeField] public int m_hp = 10;
+
 
     void Start()
     {
@@ -49,5 +50,6 @@ public class BulletCon : MonoBehaviour
 				Destroy(this.gameObject);
 			}
         }
+
     }
 }

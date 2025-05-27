@@ -18,6 +18,8 @@ public class EnemyAimAtAlly : CharactorBase
     public int giveColorValue = 0;                   //ColorTankに与える色の値
     protected Vector3 _targetDirection;
 
+	bool _isdead = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,7 @@ public class EnemyAimAtAlly : CharactorBase
 			}
 			else
 			{
-				_baseSpeed = 1;
+					_baseSpeed = 1;
 			}
 
 			//左方向に移動
@@ -59,8 +61,12 @@ public class EnemyAimAtAlly : CharactorBase
 		}
 		else
 		{
-			OnDead();
-			gameSystem.AddColoerValue(giveColorValue, colorType);//初期値
+			if (!_isdead)
+			{
+				_isdead = true;
+				OnDead();
+				gameSystem.AddColoerValue(giveColorValue, colorType);//初期値
+			}
         }
 	}
 
