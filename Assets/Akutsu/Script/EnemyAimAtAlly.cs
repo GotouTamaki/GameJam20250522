@@ -97,4 +97,10 @@ public class EnemyAimAtAlly : CharactorBase
         //gameSystem.AddColoerValue()
 
     }
+
+	public virtual void OnDead()
+	{
+		base.OnDead();
+        FindAnyObjectByType<EnemyManager>().busteredEnemyCount++;
+    }
 }

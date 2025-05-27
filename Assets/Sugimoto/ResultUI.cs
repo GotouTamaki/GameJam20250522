@@ -21,7 +21,9 @@ public class ResultUI : MonoBehaviour
         if (_gameSystem.GetIsGameOver)
         {
             _resultPanel.SetActive(true);
+            //kill”‚ÆWave”‚ğ•\¦
             _TextMeshPro.text = $"Game over \n Survival Wave{_enemyManager.waveCount}\n Kill{_enemyManager.busteredEnemyCount}";
+            Debug.Log("Result" + _gameSystem.GetIsGameOver);
         }
     }
 }

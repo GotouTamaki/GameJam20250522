@@ -21,7 +21,9 @@ public class GameSystem : MonoBehaviour
     // クリア条件・失敗条件・Wave移行条件
     public ColorTank[] allColoersTank;
     GameMode gameMode = GameMode.None;
-    
+
+    [SerializeField] ResultUI resultUI;
+
     bool _isGameOver;
 
     int mustEnemyCount = 0;
@@ -45,6 +47,11 @@ public class GameSystem : MonoBehaviour
     public void SetIsGameover(bool isGameOver)
     {
         _isGameOver = isGameOver;
+
+        if (isGameOver)
+        {
+            resultUI.OnResultDisplay();
+        }
     }
 
     void Start()
@@ -63,7 +70,7 @@ public class GameSystem : MonoBehaviour
     void NextWave()
     {
         //NextWaveに行く処理
-        currentWaveNumber ++;
+        currentWaveNumber++;
         ChangeWave(currentWaveNumber); //currentWaveNumberに応じてWaveの情報が入っているメソッドを呼び出してくる →　ChangeWave()でここのスクリプトにある EnemyCount系 を変更する。
         if (currentWaveNumber >= 11)
         {
@@ -113,7 +120,7 @@ public class GameSystem : MonoBehaviour
     }
 
 
-        // Start is called before the first frame update
+    // Start is called before the first frame update
 
 
     // Update is called once per frame

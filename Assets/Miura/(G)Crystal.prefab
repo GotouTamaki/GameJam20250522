@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.44, y: 0.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -145,7 +145,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.44, y: 0.44}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.44, y: 0.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -181,5 +181,7 @@ MonoBehaviour:
     _searchRange: 1
     _spriteRenderer: {fileID: 0}
     _deadEffect: {fileID: 0}
+    _hitCollider: {fileID: 0}
+  _rigidbody2D: {fileID: 0}
   gameSystem: {fileID: 0}
   maxCrystalHP: 0
