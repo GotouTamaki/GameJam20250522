@@ -11,6 +11,7 @@ public class CharactorParamater
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Collider2D _hitCollider;
+    [SerializeField] private AudioClip _deadSound;
 
     public int GetMaxHp => _maxHp;
     public int GetCurrentHp => _currentHp;
@@ -20,8 +21,10 @@ public class CharactorParamater
     public SpriteRenderer GetSpriteRenderer => _spriteRenderer;
     public ParticleSystem GetDeadEffect => _deadEffect;
     public Collider2D GetHitCollider => _hitCollider;
+    public AudioClip GetDeadSound => _deadSound;
 
-    public void SetMaxHp(int maxHp) => _maxHp = maxHp;
+
+	public void SetMaxHp(int maxHp) => _maxHp = maxHp;
     public void SetHp(int hp) => _currentHp = hp;
     public void SetCharactorAttack(int charactorAttack) => _charactorAttack = charactorAttack;
     public void SetMoveSpeed(float moveSpeed) => _moveSpeed = moveSpeed;

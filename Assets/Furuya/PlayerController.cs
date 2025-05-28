@@ -46,6 +46,8 @@ public class PlayerController : CharactorBase
     [SerializeField] int _jumpCount = 2;
     int _currrentJumpCount;
 
+    bool _isdead = false;
+
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
@@ -118,7 +120,11 @@ public class PlayerController : CharactorBase
         }
         else
         {
-            OnDead();
+            if (!_isdead)
+            {
+                _isdead = true;
+				OnDead();
+			}
         }
     }
 

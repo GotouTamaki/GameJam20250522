@@ -45,10 +45,11 @@ public class BulletCon : MonoBehaviour
         {
 			m_hp -= collision.gameObject.GetComponent<EnemyBulletScript>()._bulletAttack;
 
-			if (m_hp < 0)
-			{
+            if(m_hp < 0)
+            {
 				Destroy(this.gameObject);
 			}
-		}
+        }
+
     }
 }

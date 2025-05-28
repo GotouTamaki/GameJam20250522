@@ -1,10 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    public void SceneChange()
+    void OnMouseDown()
     {
-        SceneManager.LoadScene("Goto");
+        SceneManager.LoadScene("GameScene");
     }
 }

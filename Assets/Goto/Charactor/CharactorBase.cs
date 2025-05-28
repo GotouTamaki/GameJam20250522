@@ -51,5 +51,11 @@ public class CharactorBase : MonoBehaviour
         {
             Instantiate(_charactorParamater.GetDeadEffect, gameObject.transform.position, gameObject.transform.rotation);
         }
+
+        if (_charactorParamater.GetDeadSound != null)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.PlayOneShot(_charactorParamater.GetDeadSound, 0.5f);
+        }
     }
 }
