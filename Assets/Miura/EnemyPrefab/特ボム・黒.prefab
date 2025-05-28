@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charactorParamater:
-    _maxHp: 1
-    _currentHp: 1
-    _charactorAttack: 1
-    _moveSpeed: 1
+    _maxHp: 50
+    _currentHp: 50
+    _charactorAttack: 100
+    _moveSpeed: 2
     _searchRange: 1
     _spriteRenderer: {fileID: 0}
     _deadEffect: {fileID: 0}

@@ -25,7 +25,18 @@ public class CrystalController : CharactorBase
         //    gameSystem.SetIsGameover(true); //GameSystemに処理が移行
         //    Debug.Log(gameSystem.GetIsGameOver);
         //}
+
+        if (IsDead && !isDisplay)
+        {
+            gameSystem.SetIsGameover(true); //GameSystemに処理が移行
+            isDisplay = true;
+        }
     }
+
+    //public void CrystalHP()
+    //{
+    //    _charactorParamater.GetCurrentHp;
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,11 +44,11 @@ public class CrystalController : CharactorBase
         {
             //collision.gameObject.GetComponent<>().bulletDamage; 敵の弾からダメージを取得
             //DamageBehaviour(float bulletDamage);
-            if (IsDead && !isDisplay)
-            {
-                gameSystem.SetIsGameover(true); //GameSystemに処理が移行
-                isDisplay = true;
-            }
+            //if (IsDead && !isDisplay)
+            //{
+            //    gameSystem.SetIsGameover(true); //GameSystemに処理が移行
+            //    isDisplay = true;
+            //}
         }
     }
 

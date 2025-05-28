@@ -27,6 +27,7 @@ public class PlayerController : CharactorBase
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
     [SerializeField] Animator m_animator;
+    [SerializeField] CrystalController m_crystalController;
 
     Rigidbody2D m_rb = default;
     SpriteRenderer m_sprite = default;
@@ -46,7 +47,7 @@ public class PlayerController : CharactorBase
     [SerializeField] int _jumpCount = 2;
     int _currrentJumpCount;
 
-    bool _isdead = false;
+    Vector3 _inittransform;
 
     void Start()
     {
@@ -55,6 +56,8 @@ public class PlayerController : CharactorBase
         // 初期位置を覚えておく
         m_initialPosition = this.transform.position;
         _currrentJumpCount = _jumpCount;
+
+        _inittransform = this.transform.position;
     }
 
     void Update()
@@ -120,12 +123,15 @@ public class PlayerController : CharactorBase
         }
         else
         {
-            if (!_isdead)
-            {
-                _isdead = true;
-				OnDead();
-			}
+            OnDead();
         }
+    }
+
+    public override void OnDead()
+    {
+        this.transform.position = this._inittransform;
+        _charactorParamater.SetHp(_charactorParamater.GetMaxHp);
+        m_crystalController.GetCharactorParamater.SetHp(m_crystalController.GetCharactorParamater.GetCurrentHp - _charactorParamater.GetMaxHp);
     }
 
     private void FixedUpdate()
