@@ -1961,6 +1961,7 @@ MonoBehaviour:
     _spriteRenderer: {fileID: 5233531446576989169}
     _deadEffect: {fileID: 0}
     _hitCollider: {fileID: 8106401717859164276}
+    _deadSound: {fileID: 0}
   _rigidbody2D: {fileID: 3200682761158773777}
   gameSystem: {fileID: 0}
   _bullet: {fileID: 1909242606668514369, guid: 0678d1fb4e15d7e4eb5046586fb6fa41, type: 3}

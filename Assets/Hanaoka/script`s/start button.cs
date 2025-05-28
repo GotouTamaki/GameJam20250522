@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         SceneManager.LoadScene("GameScene");
     }
