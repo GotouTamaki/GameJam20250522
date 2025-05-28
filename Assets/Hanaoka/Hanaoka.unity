@@ -266,9 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  resetPositionX: -25
-  startPositionX: 29
 --- !u!212 &415021661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -418,9 +415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  resetPositionX: -25
-  startPositionX: 29
 --- !u!1 &584586148
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,9 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  resetPositionX: -32
-  startPositionX: 30
 --- !u!1 &593556857
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,9 +877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
-  resetPositionX: -22
-  startPositionX: 32
 --- !u!1 &846672687
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,9 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  resetPositionX: -24
-  startPositionX: 28
 --- !u!1 &1033673369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,16 +1186,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1223,7 +1208,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1512,9 +1497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  resetPositionX: -28
-  startPositionX: 35
 --- !u!1 &1347441654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,9 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae465dbd0f0d7d14d87af3ef6225afe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  resetPositionX: -29
-  startPositionX: 33
 --- !u!1 &1759871025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2003421690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2003421692}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_MethodName: SceneChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2003421690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,7 +2282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2003421687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25b142fbae4f334ab74e0f0f1e53cb4, type: 3}
+  m_Script: {fileID: 11500000, guid: df0c1245513cbd749880b42d5e0701e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

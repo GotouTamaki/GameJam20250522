@@ -13,7 +13,30 @@ MonoBehaviour:
   m_Name: TestEnemyData
   m_EditorClassIdentifier: 
   _enemyData:
-  - _enemy: {fileID: 0}
+  - _enemy: {fileID: 2883411804619738914, guid: 3f035f97f9b8fe645880a7024d987740, type: 3}
     _popTime: 0
-  - _enemy: {fileID: 0}
+    _popWight: 20
+  - _enemy: {fileID: 7126620846549454435, guid: 1206ebc7c52f0df43b3ea29f01a1ac83, type: 3}
     _popTime: 0
+    _popWight: 20
+  - _enemy: {fileID: 1318686234200016390, guid: 0c0c53936620d7a4080ab7c004765ea8, type: 3}
+    _popTime: 0
+    _popWight: 20
+  - _enemy: {fileID: 8532101568835586993, guid: d44472b010a3c754eb75deb430694416, type: 3}
+    _popTime: 0
+    _popWight: 10
+  - _enemy: {fileID: 3777049071562977305, guid: e8e92d290ed07bf40b436937317aa924, type: 3}
+    _popTime: 0
+    _popWight: 10
+  - _enemy: {fileID: 8964460310608461001, guid: 402d975d809fb444d88a85f7123a47b1, type: 3}
+    _popTime: 0
+    _popWight: 10
+  - _enemy: {fileID: 1423025529730377406, guid: 91bbd80cbb278f844b938ec4707d2a1e, type: 3}
+    _popTime: 0
+    _popWight: 5
+  - _enemy: {fileID: 1048129104357334756, guid: 1dcd2bab2d7319b4bbe1b9fdb7801d91, type: 3}
+    _popTime: 0
+    _popWight: 3
+  - _enemy: {fileID: 5314016339841437534, guid: 3ef38cb1bed05ac42b0d58b6a181c05d, type: 3}
+    _popTime: 0
+    _popWight: 2

@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charactorParamater:
-    _maxHp: 1
-    _currentHp: 1
-    _charactorAttack: 1
+    _maxHp: 195
+    _currentHp: 195
+    _charactorAttack: 10
     _moveSpeed: 1
     _searchRange: 1
     _spriteRenderer: {fileID: 4468597724277215937}
