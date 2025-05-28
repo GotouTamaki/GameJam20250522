@@ -2226,13 +2226,13 @@ MonoBehaviour:
       - m_Target: {fileID: 2003421692}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: SceneLoad
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Goto
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2003421690
@@ -2285,7 +2285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb908c9b2686644bbf4ca6a38273a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadScene: Goto
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
