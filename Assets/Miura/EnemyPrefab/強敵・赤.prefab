@@ -114,7 +114,7 @@ MonoBehaviour:
     _deadSound: {fileID: 0}
   _rigidbody2D: {fileID: 5103160109692471243}
   gameSystem: {fileID: 0}
-  _bullet: {fileID: 1909242606668514369, guid: 0678d1fb4e15d7e4eb5046586fb6fa41, type: 3}
+  _bullet: {fileID: 6651816358625413604, guid: 7e6e7f9199009b749998635b6602acb5, type: 3}
   _muzzleTransform: {fileID: 2561529254261005523}
   _bulletInterbal_sec: 3
   _baseSpeed: 10
