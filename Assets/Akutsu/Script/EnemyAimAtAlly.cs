@@ -65,7 +65,7 @@ public class EnemyAimAtAlly : CharactorBase
 			{
 				_isdead = true;
 				OnDead();
-				gameSystem.AddColoerValue(giveColorValue, colorType);//‰Šú’l
+				//gameSystem.AddColoerValue(giveColorValue, colorType);//‰Šú’l
 			}
         }
 	}
@@ -102,5 +102,6 @@ public class EnemyAimAtAlly : CharactorBase
 	{
 		base.OnDead();
         FindAnyObjectByType<EnemyManager>().busteredEnemyCount++;
+		OnInitialize();
     }
 }
