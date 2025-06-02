@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 232713358448233500}
   m_Layer: 0
   m_Name: "\u5F37\u6575\u30FB\u9752"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,14 +201,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charactorParamater:
-    _maxHp: 200
-    _currentHp: 200
+    _maxHp: 20
+    _currentHp: 20
     _charactorAttack: 10
-    _moveSpeed: 1
+    _moveSpeed: 5
     _searchRange: 1
-    _spriteRenderer: {fileID: 0}
+    _spriteRenderer: {fileID: 1953721359523822926}
     _deadEffect: {fileID: 0}
-    _hitCollider: {fileID: 0}
+    _hitCollider: {fileID: 232713358448233500}
     _deadSound: {fileID: 0}
   _rigidbody2D: {fileID: 8637576644373068456}
   gameSystem: {fileID: 0}

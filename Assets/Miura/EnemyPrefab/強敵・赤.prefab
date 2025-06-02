@@ -103,14 +103,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charactorParamater:
-    _maxHp: 105
-    _currentHp: 105
+    _maxHp: 20
+    _currentHp: 20
     _charactorAttack: 20
-    _moveSpeed: 1
+    _moveSpeed: 5
     _searchRange: 1
     _spriteRenderer: {fileID: 2621202387052104687}
     _deadEffect: {fileID: 0}
-    _hitCollider: {fileID: 0}
+    _hitCollider: {fileID: 395694787190879988}
     _deadSound: {fileID: 0}
   _rigidbody2D: {fileID: 5103160109692471243}
   gameSystem: {fileID: 0}
