@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 9.6, y: 9.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2668793924364533975
@@ -129,6 +129,7 @@ MonoBehaviour:
   _speed: 3
   _lifeTime: 3
   _bulletAttack: 8
+  _hp: 10
 --- !u!70 &5680232099128996682
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
