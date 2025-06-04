@@ -13,13 +13,17 @@ public class PlayerHealth : MonoBehaviour
         _maxhealth = _controller.GetCharactorParamater.GetMaxHp;
         _health = _controller.GetCharactorParamater.GetCurrentHp;
         _slider.maxValue = _maxhealth;
+        _slider.value = _health;
     }
 
     private void Update()
     {
-        if (_health != 0 && _maxhealth != 0)
+        if (_health >= 0 && _health != _controller.GetCharactorParamater.GetCurrentHp)
         {
-            _slider.value = _health / _maxhealth;
+            _health = _controller.GetCharactorParamater.GetCurrentHp;
+            _slider.value = _health ;
+
         }
+
     }
 }
