@@ -40,15 +40,39 @@ public class EnemyBulletScript : MonoBehaviour
 
             Destroy(this.gameObject);
         }
-		else if (collision.CompareTag("FriendsBullet"))
-		{
+		else if (collision.CompareTag("Bullet")) //(FriendBulletÇ©ÇÁBulletÇ…ïœçX)
+        {
+            /*if (collision.TryGetComponent<BulletCon>(out var bullet))
             _hp -= collision.gameObject.GetComponent<BulletCon>().m_bulletDamage;
+            {
+                _hp -= bullet.m_bulletDamage;
+            }
 
             if(_hp < 0)
             {
 				Destroy(this.gameObject);
-			}
-			
-		}
+			}*/
+
+            // í èÌíe
+            if (collision.TryGetComponent<BulletCon>(out var normalBullet))
+            {
+                _hp -= normalBullet.m_bulletDamage;
+
+                if (_hp < 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+            // ä—í íe
+            else if (collision.TryGetComponent<BulletConPene>(out var piercingBullet))
+            {
+                _hp -= piercingBullet.m_bulletDamage;
+
+                if (_hp < 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
 	}
 }

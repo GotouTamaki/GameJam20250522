@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _charactorParamater:
-    _maxHp: 20
-    _currentHp: 20
+    _maxHp: 25
+    _currentHp: 25
     _charactorAttack: 10
     _moveSpeed: 5
     _searchRange: 1

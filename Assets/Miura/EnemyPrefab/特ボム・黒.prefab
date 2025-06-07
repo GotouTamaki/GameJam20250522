@@ -105,7 +105,7 @@ MonoBehaviour:
   _charactorParamater:
     _maxHp: 50
     _currentHp: 50
-    _charactorAttack: 100
+    _charactorAttack: 10
     _moveSpeed: 2
     _searchRange: 1
     _spriteRenderer: {fileID: 8317134883565877702}
