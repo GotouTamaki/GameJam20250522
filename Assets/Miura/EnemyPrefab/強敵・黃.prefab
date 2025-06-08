@@ -111,7 +111,7 @@ MonoBehaviour:
     _spriteRenderer: {fileID: 4468597724277215937}
     _deadEffect: {fileID: 0}
     _hitCollider: {fileID: 2441572846976489070}
-    _deadSound: {fileID: 0}
+    _deadSound: {fileID: 8300000, guid: 2db85d6f595bd5f42bc279af3e0c7004, type: 3}
   _rigidbody2D: {fileID: -4147714351682182882}
   gameSystem: {fileID: 0}
   _bullet: {fileID: 4825795957105445092, guid: b18d9e1b46ca8ef44a4328bfb5ba8ffe, type: 3}

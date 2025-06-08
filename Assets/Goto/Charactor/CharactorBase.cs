@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharactorBase : MonoBehaviour
@@ -54,7 +55,7 @@ public class CharactorBase : MonoBehaviour
 
         if (_charactorParamater.GetDeadSound != null)
         {
-            AudioSource audio = GetComponent<AudioSource>();
+            AudioSource audio = this.AddComponent<AudioSource>();
             audio.PlayOneShot(_charactorParamater.GetDeadSound, 0.5f);
         }
     }
